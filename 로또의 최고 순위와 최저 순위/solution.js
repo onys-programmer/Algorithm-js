@@ -4,15 +4,12 @@ function solution(lottos, win_nums) {
   let cnt = 0;
   let zeroCnt = 0;
 
-  win_nums.forEach((num) => {
-    if (lottos.indexOf(num) >= 0) {
-      cnt++;
-    }
-  });
-
   lottos.forEach((num) => {
     if (num === 0) {
       zeroCnt++;
+    }
+    if (win_nums.indexOf(num) >= 0) {
+      cnt++;
     }
   });
 

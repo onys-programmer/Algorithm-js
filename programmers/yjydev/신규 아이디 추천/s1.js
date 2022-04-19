@@ -10,10 +10,11 @@ function solution(new_id) {
     if (id.length >= 16){
         var id = id.substr(0,15).replace(/(\.)$/, '');
     }
-    while (id.length < 3){
-        var id = id + id[id.length-1];
-    }
-    return id;
+    // while (id.length < 3){
+    //     var id = id + id[id.length-1];
+    // }
+    // return id;
+    return id.padEnd(3,id[id.length-1]);
 }
 
 

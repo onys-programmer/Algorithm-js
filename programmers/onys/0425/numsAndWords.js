@@ -1,5 +1,5 @@
 function solution(s) {
-  let answer = 0;
+  let str = s;
   
   const table = {
       zero: 0,
@@ -14,36 +14,10 @@ function solution(s) {
       nine: 9,
   }
   
-  const lengthCase = {
-      z: [4],
-      o: [3],
-      t: [3, 5],
-      f: [4],
-      s: [3, 5],
-      e: [5],
-      n: [4],
+  for (num in table) {
+      const regex = new RegExp(num, 'g');
+      str = str.replace(regex, table[num]);
   }
-  
-  let rst = [...s].reduce((acc, cur, idx, src) => {
-      if (Number.isInteger(cur * 1)) {
-          return `${acc}${cur}`;
-      } else {
-          console.log(lengthCase[cur])
-          let temp = []
-          for (c of lengthCase[cur]) {
-              temp.push(src.slice(idx, idx + c));
-          }
-          console.log(temp)
-          for (t of temp) {
-              if (table[t]) {
-                  return `${acc}${table[t]}`;
-              }
-          }
-      }
-  }, '');
-  
-  
-  return rst;
-}
 
-console.log(solution('one4seveneight'))
+  return str * 1;
+}

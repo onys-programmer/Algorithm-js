@@ -1,12 +1,7 @@
 function solution(priorities, location) {
   let order = [];
 
-  const table = priorities.reduce((acc, cur, idx) => {
-    acc[idx] = cur;
-    return acc;
-  }, {});
-
-  const queue = Object.entries(table);
+  const queue = Object.entries(priorities);
 
   while (queue.length) {
     let picked = queue.shift();
